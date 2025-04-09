@@ -31,7 +31,7 @@ jobs:
           git add ss_links.txt
           git commit -m "Update SS links $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes"
 
-      - name: Push changes
+      - name: Push changes with PAT
         uses: ad-m/github-push-action@v0.6.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
