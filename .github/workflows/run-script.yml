@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}  # 使用你配置的 token
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -30,3 +32,6 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add ss_links.txt
           git commit -m "Update SS links $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes"
+      
+      - name: Push changes
+        run: git push
